@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="@comingzones/cordova-plugin-signature" 
+    version="1.0.0">
+
+    <name>Signature</name>
+    <js-module name="Signature" src="www/Signature.js">
+        <clobbers target="Signature" />
+    </js-module>
+    <!-- 定义一些参数 -->
+    <preference name="SIGNATURE_KEY" />
+    <preference name="SIGNATURE_LICENSE" />
+    <preference name="SIGNATURE_APPID" />
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Signature">
+                <param name="android-package" value="signature.Signature" />
+            </feature>
+            <preference name="SIGNATURE_KEY" value="$SIGNATURE_KEY" />
+            <preference name="SIGNATURE_LICENSE" value="$SIGNATURE_LICENSE" />
+        </config-file>
+       
+        <source-file src="src/android/Signature.java" target-dir="src/signature/" />
+        <source-file src="src/android/H5Activity.java" target-dir="src/signature/" />
+        <source-file src="src/android/WBH5FaceVerifySDK.java" target-dir="src/signature/" />
+        <source-file src="src/android/activity_h5.xml" target-dir="res/layout/" />
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <!-- 允许访问Wi-Fi网络状态信息 -->
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <!-- 允许获取Wi-Fi网络状态改变信息 -->
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <!-- 访问网络 -->
+            <uses-permission android:name="android.permission.INTERNET" />
+            <!-- 读取手机状态 -->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <!-- SD 卡读写权限 -->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <!-- 相机权限 -->
+            <uses-permission android:name="android.permission.CAMERA" />
+
+        </config-file>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="Signature">
+                <param name="ios-package" value="Signature" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/Signature.m" />
+
+        <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
+            <string>需要您的同意,APP才能访问相机</string>
+        </config-file>
+
+        <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
+            <string>需要您的同意,APP才能访问麦克风</string>
+        </config-file>
+
+
+        <config-file parent="NSPhotoLibraryUsageDescription" target="*-Info.plist">
+            <string>需要您的同意,APP才能访问相册</string>
+        </config-file>
+
+        <config-file parent="NSAppTransportSecurity" target="*-Info.plist">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true />
+            </dict>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>esign</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>esign</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <framework src="libs/ios/EsignSDK.framework" custom="true"/>
+        <resource-file src="libs/ios/EsignSDKRes.bundle" />
+
+        <podspec>
+          <pods use-frameworks="true">
+            <pod name="AFNetworking" spec="~> 4.0.1" />
+            <pod name="Masonry" spec="~> 1.1.0" />
+            <pod name="YYModel" spec="~> 1.0.4" />
+            <pod name="YYCache" spec="~> 1.0.4" />
+            <pod name="MBProgressHUD" spec="~> 1.1.0" />
+            <pod name="SDWebImage" spec="~> 5.0.4" />
+          </pods>
+        </podspec>
+    </platform>
+</plugin>

@@ -1,0 +1,6 @@
+framework module EsignSDK {
+  umbrella header "EsignSDK.h"
+
+  export *
+  module * { export * }
+}
