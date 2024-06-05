@@ -1,13 +1,11 @@
 {
     "name": "@fubaobaoxian/cordova-plugin-signature",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Cordova Device Plugin",
     "types": "./types/index.d.ts",
-    "cordova":
-    {
+    "cordova": {
         "id": "@fubaobaoxian/cordova-plugin-signature",
-        "platforms":
-        [
+        "platforms": [
             "android",
             "ios",
             "windows",
@@ -15,17 +13,14 @@
             "osx"
         ]
     },
-    "repository":
-    {
+    "repository": {
         "type": "git",
         "url": "git@github.com:iceDragonC/cordova-plugin-device.git"
     },
-    "publishconfig":
-    {
+    "publishconfig": {
         "registry": "https://registry.npmjs.org/"
     },
-    "keywords":
-    [
+    "keywords": [
         "cordova",
         "device",
         "ecosystem:cordova",
@@ -35,8 +30,7 @@
         "cordova-browser",
         "cordova-osx"
     ],
-    "scripts":
-    {
+    "scripts": {
         "test": "npm run eslint",
         "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
     },

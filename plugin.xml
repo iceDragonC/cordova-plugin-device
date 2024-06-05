@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="@comingzones/cordova-plugin-signature" 
+    id="@fubaobaoxian/cordova-plugin-signature" 
     version="1.0.0">
 
     <name>Signature</name>
@@ -23,6 +23,10 @@
             <preference name="SIGNATURE_LICENSE" value="$SIGNATURE_LICENSE" />
         </config-file>
        
+
+        <framework src="org.greenrobot:eventbus:3.2.0"/>
+        <framework src="pub.devrel:easypermissions:1.1.2"/>
+
         <source-file src="src/android/Signature.java" target-dir="src/signature/" />
         <source-file src="src/android/H5Activity.java" target-dir="src/signature/" />
         <source-file src="src/android/WBH5FaceVerifySDK.java" target-dir="src/signature/" />
