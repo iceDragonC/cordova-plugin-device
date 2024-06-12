@@ -31,6 +31,28 @@
         <source-file src="src/android/H5Activity.java" target-dir="src/signature/" />
         <source-file src="src/android/WBH5FaceVerifySDK.java" target-dir="src/signature/" />
         <source-file src="src/android/activity_h5.xml" target-dir="res/layout/" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:name="signature.H5Activity"
+                android:screenOrientation="portrait"
+                android:launchMode="singleTask"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+
+                    <data
+                        android:host="demo"
+                        android:path="/signBack"
+                        android:scheme="esign" />
+                    <data
+                        android:host="demo"
+                        android:path="/realBack"
+                        android:scheme="esign" />
+                </intent-filter>
+            </activity>
+        </config-file>
 
         <config-file parent="/*" target="AndroidManifest.xml">
             <!-- 获取GSM网络信息状态，如当前的网络连接是否有效 -->
