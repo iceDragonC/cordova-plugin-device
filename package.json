@@ -1,6 +1,6 @@
 {
     "name": "@fubaobaoxian/cordova-plugin-signature",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Cordova Device Plugin",
     "types": "./types/index.d.ts",
     "cordova": {

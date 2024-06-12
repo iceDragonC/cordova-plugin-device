@@ -3,7 +3,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="@fubaobaoxian/cordova-plugin-signature" 
-    version="1.0.0">
+    version="1.0.2">
 
     <name>Signature</name>
     <js-module name="Signature" src="www/Signature.js">
