@@ -3,7 +3,7 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="@fubaobaoxian/cordova-plugin-signature" 
-    version="1.0.2">
+    version="1.0.3">
 
     <name>Signature</name>
     <js-module name="Signature" src="www/Signature.js">
@@ -36,6 +36,7 @@
                 android:name="signature.H5Activity"
                 android:screenOrientation="portrait"
                 android:launchMode="singleTask"
+                android:theme="@style/Theme.App.SplashScreen"
                 android:exported="true">
                 <intent-filter>
                     <action android:name="android.intent.action.VIEW" />
